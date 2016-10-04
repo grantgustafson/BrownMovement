@@ -1,0 +1,7 @@
+
+target/classes/.DS_Store
+target/classes/thug
+/target/*
+.DS_Store
+/target/
+.nfs*

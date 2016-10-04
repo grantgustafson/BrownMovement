@@ -1,0 +1,28 @@
+ path {
+ fill: none;
+}
+
+.streets path {
+ stroke-width: 6px;
+ stroke: #cccccc;
+}
+
+.footways path {
+  stroke-width: 3px;
+  stroke: #e6e6e6;
+}
+
+.bldgs path {
+ fill: #737373;
+ stroke: #262626;
+ stoke-width: 1px;
+}
+
+.grass path {
+ fill: #aaff80;
+}
+
+.ap-circles {
+ fill: #6699ff;
+ stroke: black;
+}

@@ -1,0 +1,247 @@
+/* ---  MAP STYLING  ---*/
+body {
+  -webkit-user-select: none;
+     -moz-user-select: -moz-none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+svg{
+  background-color: lavender;
+}
+
+path {
+ fill: none;
+}
+
+.streets path {
+ stroke-width: 6px;
+ stroke: #cccccc;
+}
+
+.footways path {
+  stroke-width: 3px;
+  stroke: white;
+}
+
+.bldgs path {
+ fill: #737373;
+ stroke: #262626;
+ stoke-width: 1px;
+}
+
+.grass path {
+ fill: #aaff80;
+}
+
+.ap-circles {
+ fill: #6699ff;
+ stroke: black;
+}
+
+.flux-paths {
+  stroke: #6699ff;
+  stroke-width: 1px;
+}
+
+
+.ratty-path {
+  stroke: red;
+}
+
+.faunce-path {
+  stroke: purple;
+}
+#predict {
+  position: absolute;
+  top: 375px;
+  left: 80px;
+  visibility: hidden;
+}
+
+#date{
+  position: absolute;
+  top:470px;
+  left: 100px;
+}
+
+#day{
+  position: absolute;
+  top: 470px;
+  left: 78px;
+}
+
+
+.weather-div{
+  width:150px;
+  height:150px;
+  position:fixed;
+  top:10%;
+  left: 25%;
+}
+
+.scale{
+  position: fixed;
+  bottom: 2%;
+  right: 1%;
+}
+
+.logo{
+  position:fixed;
+  top: 35%;
+  right:2%;
+}
+
+.sunny, .cloudy, .rainy, .snowy, .stormy, .windy{
+  width:200px;
+  height:200px;
+}
+
+.toggle.btn.btn-primary {
+  width: 200px;
+}
+
+.range-slider {
+  width:800px;
+  height:20px;
+  margin-left: 400px;
+  margin-top: 25px;
+  position:absolute;
+  cursor:e-resize;
+}
+.range-slider:before {
+  content:"";
+  display:block;
+  position:absolute;
+  top:9px;
+  left:0;
+  width:100%;
+  height:2px;
+  background-color:black;
+}
+.range-slider span {
+  display:block;
+  height:inherit;
+  position:relative;
+  z-index:2;
+  background-color:#00FF00;
+  cursor:inherit;
+}
+
+#wrapper {
+    padding-left: 0;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+#wrapper.toggled {
+    padding-left: 250px;
+}
+
+#sidebar-wrapper {
+    z-index: 1000;
+    position: fixed;
+    left: 250px;
+    width: 0;
+    height: 100%;
+    margin-left: -250px;
+    overflow-y: auto;
+    background: lightgray;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+#wrapper.toggled #sidebar-wrapper {
+    width: 300px;
+}
+
+#page-content-wrapper {
+    width: 100%;
+    position: absolute;
+    padding: 15px;
+}
+
+#wrapper.toggled #page-content-wrapper {
+    position: absolute;
+    margin-right: -250px;
+}
+
+/* Sidebar Styles */
+
+.sidebar-list {
+    position: absolute;
+    top: 0;
+    width: 300px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.sidebar-list li {
+    text-align: center;
+    line-height: 40px;
+}
+
+.sidebar-list li a {
+    display: block;
+    text-decoration: none;
+    color: #999999;
+}
+
+.sidebar-list li a:hover {
+    text-decoration: none;
+    color: #fff;
+    background: rgba(255,255,255,0.2);
+}
+
+.sidebar-list li a:active,
+.sidebar-nav li a:focus {
+    text-decoration: none;
+}
+
+.sidebar-list > .sidebar-brand {
+    height: 65px;
+    font-size: 18px;
+    line-height: 60px;
+}
+
+.sidebar-list > .sidebar-brand a {
+    color: #999999;
+}
+
+.sidebar-list > .sidebar-brand a:hover {
+    color: #fff;
+    background: none;
+}
+
+@media(min-width:768px) {
+    #wrapper {
+        padding-left: 250px;
+    }
+
+    #wrapper.toggled {
+        padding-left: 0;
+    }
+
+    #sidebar-wrapper {
+        width: 300px;
+    }
+
+    #wrapper.toggled #sidebar-wrapper {
+        width: 0;
+    }
+
+    #page-content-wrapper {
+        padding: 20px;
+        position: relative;
+    }
+
+    #wrapper.toggled #page-content-wrapper {
+        position: relative;
+        margin-right: 0;
+    }
+}

@@ -1,0 +1,66 @@
+.date {
+  
+}
+
+h1{
+	text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 1.4px;
+  font-family: Georgia, serif;
+}
+
+h3{
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 1.4px;
+}
+
+.toggle {
+  position: relative;
+  margin-left: -9999px;
+  visibility: hidden;
+}
+.toggle + label {
+  display: block;
+  position: relative;
+  cursor: pointer;
+  outline: none;
+}
+
+input.toggle-marital + label {
+  padding: 2px;
+  width: 120px;
+  height: 60px;
+}
+input.toggle-marital + label:before,
+input.toggle-marital + label:after {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  text-align: center;
+  line-height: 60px;
+}
+input.toggle-marital + label:before {
+  background-color: #0080FF;
+  opacity: .7;
+  content: attr(data-off);
+  transition: transform 0.5s;
+  backface-visibility: hidden;
+}
+input.toggle-marital + label:after {
+  background-color: #E78A00;
+  opacity: .7;
+  content: attr(data-on);
+  transition: transform 0.5s;
+  transform: rotateY(180deg);
+  backface-visibility: hidden;
+}
+input.toggle-marital:checked + label:before {
+  transform: rotateY(180deg);
+}
+input.toggle-marital:checked + label:after {
+  transform: rotateY(0);
+}

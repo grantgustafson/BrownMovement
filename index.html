@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+  <head>
+        <link type="text/css" rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css">
+        <meta charset="utf-8">
+  </head>
+  <body>
+        <!-- Sidebar -->
+      <div id="sidebar-wrapper">
+          <ul class="sidebar-list">
+              <li>
+                  <h3 id="theDate">11-12-2015<br></h3>
+              </li>
+              <li>
+                  <h4 id="weekday"></h4>
+              </li>
+              <li>
+                  <h5 id="timeRange"></h5>
+              </li>
+              <li class="flux-toggle">
+                <div class="btn-group btn-toggle" id="flux">
+                  <button class="btn btn-lg btn-default active" id="flux">Density</button>
+                  <button class="btn btn-lg btn-default" id="flux">Flux</button>
+                  <button class="btn btn-lg btn-default" id="flux">Prediction</button>
+                </div>
+              </li>
+              <li><br></li>
+              <li class="building-toggle">
+                <div class="btn-group btn-toggle"> 
+                  <input type="checkbox" checked data-toggle="toggle" data-on="Showing Buildings" data-off="Hiding Buildings" data-offstyle="danger">
+                </div>
+              </li>
+              <li class="road-toggle">
+                <div class="btn-group btn-toggle"> 
+                  <input type="checkbox" checked data-toggle="toggle" data-on="Showing Roads" data-off="Hiding Roads" data-offstyle="danger">
+                </div>
+              </li>
+              <li class="footway-toggle">
+                <div class="btn-group btn-toggle"> 
+                  <input type="checkbox" checked data-toggle="toggle" data-on="Showing Footways" data-off="Hiding Footways" data-offstyle="danger">
+                </div>
+              </li>
+              <li class="grass-toggle">
+                <div class="btn-group btn-toggle"> 
+                  <input type="checkbox" checked data-toggle="toggle" data-on="Showing Greens" data-off="Hiding Greens" data-offstyle="danger">
+                </div>
+              </li>
+
+              <li id="selection">
+                <h3><em>SELECT NEW</em></h3>
+                <div class="btn-group btn-toggle" id="dateSwitch"> 
+                  <button class="btn btn-lg btn-default active" id="select">Date</button>
+                  <button class="btn btn-lg btn-default" id="select">Day</button>
+                </div>
+              </li>
+              <li><br></li>
+              <li>
+                <div id="date">
+                      <label>
+                        <form onSubmit="return selectDate()">
+                        Month
+                        <select class="form-control" id="month-picker">
+                            <option id="November">November</option>
+                            <option id="December">December</option>
+                        </select>
+                        Day
+                        <select class="form-control" id="day-picker">
+                            <option id="12">12</option>
+                            <option id="13">13</option>
+                            <option id="14">14</option>
+                            <option id="15">15</option>
+                            <option id="16">16</option>
+                            <option id="17">17</option>
+                            <option id="18">18</option>
+                            <option id="19">19</option>
+                            <option id="20">20</option>
+                            <option id="21">21</option>
+                            <option id="22">22</option>
+                            <option id="23">23</option>
+                            <option id="24">24</option>
+                            <option id="25">25</option>
+                            <option id="26">26</option>
+                            <option id="27">27</option>
+                            <option id="28">28</option>
+                            <option id="29">29</option>
+                            <option id="30">30</option>
+                            <option id="31">31</option>
+                        </select>
+                        Year
+                        <select class="form-control" id="year-picker">
+                            <option id="2015">2015</option>
+                            <option id="2016">2016</option>
+                        </select>
+                        <br>
+                        <input type="submit" value="Select Date" class="btn btn-success">
+                        </form>
+                      </label>
+                </div>
+                <div id="day">
+                      <label>
+                        <form onSubmit="return changeDay()">
+                        Typical
+                        <select class="form-control" id="typical-picker">
+                            <option id="Monday">Monday</option>
+                            <option id="Tuesday">Tuesday</option>
+                            <option id="Wednesday">Wednesday</option>
+                            <option id="Thursday">Thursday</option>
+                            <option id="Friday">Friday</option>
+                            <option id="Saturday">Saturday</option>
+                            <option id="Sunny">Sunny Day</option>
+                            <option id="Rainy">Rainy Day</option>
+                            <option id="Partly Cloudy">Partly Cloudy Day</option>
+                            <option id="Snowy">Snowy Day</option>
+                            <option id="Stormy">Stormy Day</option>
+                            <option id="Cloudy">Cloudy Day</option>
+                            <option id="Class">Class Day</option>
+                            <option id="Non-Class">Non-Class Day</option>
+                        </select>
+                        <br>
+                        <input type="submit" value="Select Day" class="btn btn-success">
+                        </form>
+                      </label>
+                </div>
+                <div id="predict">
+                	<input type="submit" value="Predict Next Step" class="btn btn-success" id="submitpredict">
+                	</br>
+                	<input type="submit" value="Clear Steps" class="btn btn-default" id="clearpredict">
+                </div>
+              </li>
+          </ul>
+      </div>
+
+
+
+    <div class="range-slider" id="range-slider-1">
+        <span id="s1"></span>
+        <span id="s2"></span>
+    </div>
+
+    <div class="weather-div" id="sunny">
+      <img border="0" alt="Sunny" src="weather_icons/sun.svg" width="150px" height="150px">
+    </div>
+    <div class="weather-div" id="cloudy">
+      <img border="0" alt="Cloudy" src="weather_icons/cloud.svg" width="150px" height="150px">
+    </div>
+    <div class="weather-div" id="rainy">
+      <img border="0" alt="Rainy" src="weather_icons/rain.svg" width="150px" height="150px">
+    </div>
+    <div class="weather-div" id="snowy">
+      <img border="0" alt="Snowy" src="weather_icons/snowflake.svg" width="150px" height="150px">
+    </div>
+    <div class="weather-div" id="stormy">
+      <img border="0" alt="Stormy" src="weather_icons/storm.svg" width="150px" height="150px">
+    </div>
+    <div class="weather-div" id="partly-cloudy">
+      <img border="0" alt="Partly Cloudy" src="weather_icons/partly_cloudy.svg" width="150px" height="150px">
+    </div>
+
+    <div class="scale" id="scale">
+        <h4 id="theScale"><br>Maximum Average Density: 215</h4>
+    </div>
+
+
+   <!--  <img class="logo" border="0" alt="Logo" src="pia.png" width="300px" height="300px"> -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.16/d3.min.js"></script>
+    <script src="js/jquery-2.1.1.js"></script>
+    <script src="http://d3js.org/queue.v1.min.js"></script>
+    <script src="//d3js.org/topojson.v1.min.js"></script>
+    <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+    <script src="js/map.js"></script>
+    <script src="js/APZones.js"></script>
+    <script src="js/count.js"></script>
+    <script src="js/Queue.js"></script>
+    <script src="js/Flux.js"></script>
+    <script src="js/Animation.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
